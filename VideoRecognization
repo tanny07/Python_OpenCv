@@ -1,0 +1,19 @@
+### Reading An Video using Opencv extension in Python###
+import cv2
+
+capture = cv2.VideoCapture('File location of the video/0 to open the camera of your device ')
+while True:
+    isTrue, frame =capture.read()
+    cv2.imshow('video',frame)
+
+    if cv2.waitKey(40) & 0xFF==ord('q'):
+        break
+
+capture.release()
+cv2.destroyAllWindows()
+
+#capture.read function will read the video frame by frame
+#imshow function will display the video in a frame named as video
+#waitkey is the waiting time and ord function is used to quit/terminate the frame by pressing q
+#capture.release function will release all the captured frames 
+#destroyAllWindows Function will exit the program and terminate the frame
