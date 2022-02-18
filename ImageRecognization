@@ -1,0 +1,14 @@
+#In this program, we are going to load an Image through Opencv by importing cv2. It is a basic approach to getting started with opencv extension. 
+
+import cv2
+
+### Reading An Image ###
+
+img = cv2.imread('#File Location of the Image#')
+cv2.imshow('frame', img)
+cv2.waitKey(5000)
+
+#If you are getting an assertion failed error (error 215) then please check your path of the image and extension of the Image.
+#imread function will read the file through the given location.
+#imshow function will make a new frame initially named as frame to display the image.  
+#waitkey is waiting time/ display time for the Image.
