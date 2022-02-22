@@ -1,0 +1,53 @@
+from turtle import width
+import cv2 as cv
+import cv2
+from cv2 import INTER_AREA
+from cv2 import resize
+from sklearn.preprocessing import scale
+
+
+
+#Reading An Image 
+
+img = cv2.imread('LINK_OF_YOUR_FILE')
+
+#This function call RescaleFrame to rescale the videos, pics and live video recording
+
+def RescaleFrame(frame, Scale = 0.50 ):
+
+    width =  int(frame.shape[1] * scale)
+    height = int(frame.shape[0] * scale)
+
+    dimensions = (width, height)
+
+    return cv.resize(frame, dimensions, interpolation= cv.INTER_AREA)
+
+resized_image = RescaleFrame(img)
+
+cv2.imshow('one', img)
+cv2.imshow('image', resized_image)
+
+
+cv.waitKey(5000)
+
+# Reading An Video #
+
+# This Rescaling function can be used while only and only live recording 
+#def changeRes(width, height):
+#    capture.set(3,width)
+#    capture.set(4.hieght)
+
+capture = cv.VideoCapture('0')
+while True:
+    isTrue, frame =capture.read()
+    
+    frame_resized = RescaleFrame(frame) 
+
+    cv.imshow('Practice',frame)
+    cv.imshow('Video_Resized', frame_resized)
+
+    if cv.waitKey(5000) & 0xFF==ord('e'):
+        break
+
+capture.release()
+cv2.destroyAllWindows()
